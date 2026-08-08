@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+:root {
+  --text: #271e1a;
+  --text-h: #F39200;
+  --text-muted: #5a5550;
+  --logo: url("/Shop_Logo.png");
+  --bg: #fff;
+  --bg-header: #0f3038;
+  --bg-panel: #fff;
+  --border: #F39200;
+  --code-bg: #fffef5;
+  --table-header-bg: #174854;
+  --text-table-header: #F39200;
+  --btn-bg: #174854;
+  --btn-hover: #174854;
+  --btn-font-color: #F39200;
+  --btn-font-color-hover: #faaa32;
+
+  --btn-filter-active: #F39200;
+  --btn-filter-active-hover: #faaa32;
+  --btn-filter-inactive: #d9cfc2;
+  --btn-filter-inactive-hover: #e8dfd2;
+  --btn-filter-text: #2d2420;
+
+  --status-color-unchecked: #5a5550;
+  --status-color-not-delivered: #c41e3a;
+  --status-color-partly-delivered: #d97706;
+  --status-color-all-delivered: #059669;
+  --status-color-too-many: #0369a1;
+
+  --table-bg-delivered: #d4edda;
+  --table-bg-delivered-hover: #b1deb4;
+  --table-bg-not-delivered: #f0a9af;
+  --table-bg-not-delivered-hover: #fcbdc4;
+  --table-bg-partially-delivered: #ffd699;
+  --table-bg-partially-delivered-hover: #ffcc7a;
+  --table-bg-more-than-delivered: #b3d9ff;
+  --table-bg-more-than-delivered-hover: #99ccff;
+  --table-row-selected-bg: #ffeb99;
+
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* Manual dark mode via data-theme attribute (takes precedence) */
+:root[data-theme="dark"] {
+  --text: #a3c2ff;
+  --text-h: #e49f67;
+  --text-muted: #a3a3a3;
+  --bg: #16171d;
+  --bg-header: #252733;
+  --bg-panel: #1f2028;
+  --bg-entry-hover: #3f4253;
+  --table-header-bg: #7a563e;
+  --text-table-header: #ccbd5f;
+
+  --btn-filter-active: #f59e0b;
+  --btn-filter-active-hover: #fbbf24;
+  --btn-filter-inactive: #4b4037;
+  --btn-filter-inactive-hover: #6b5d52;
+  --btn-filter-text: #1f1a15;
+
+  --status-color-unchecked: #c5bfb7;
+  --status-color-not-delivered: #ff6b7a;
+  --status-color-partly-delivered: #fbbf24;
+  --status-color-all-delivered: #34d399;
+  --status-color-too-many: #38bdf8;
+
+  --table-bg-delivered: #1f5a2f;
+  --table-bg-delivered-hover: #2d9d4a;
+  --table-bg-not-delivered: #6a1f1f;
+  --table-bg-not-delivered-hover: #d63a3a;
+  --table-bg-partially-delivered: #7a5020;
+  --table-bg-partially-delivered-hover: #e8a040;
+  --table-bg-more-than-delivered: #1f6b7a;
+  --table-bg-more-than-delivered-hover: #2eb3d6;
+  --table-row-selected-bg: #62682f;
+
+
+  --border: #6d665a;
+  --border-thick: #fff9a3;
+  --code-bg: #1f2028;
+  --btn-bg: #d18958;
+  --btn-hover: #dab44b;
+  --btn-font-color: #22252c;
+  --btn-font-color-hover: #332c27;
+
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+}
+
+/* Browser preference dark mode (fallback if data-theme not set) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --text: #a3c2ff;
+    --text-h: #e49f67;
+    --text-muted: #a3c2ff;
+    --bg: #16171d;
+    --bg-header: #252733;
+    --bg-panel: #1f2028;
+    --bg-entry-hover: #3f4253;
+    --table-header-bg: #7a563e;
+    --text-table-header: #ccbd5f;
+
+    --btn-filter-active: #f59e0b;
+    --btn-filter-active-hover: #fbbf24;
+    --btn-filter-inactive: #4b4037;
+    --btn-filter-inactive-hover: #6b5d52;
+    --btn-filter-text: #1f1a15;
+
+    --status-color-unchecked: #c5bfb7;
+    --status-color-not-delivered: #ff6b7a;
+    --status-color-partly-delivered: #fbbf24;
+    --status-color-all-delivered: #34d399;
+    --status-color-too-many: #38bdf8;
+
+    --table-bg-delivered: #1f5a2f;
+    --table-bg-delivered-hover: #2d9d4a;
+    --table-bg-not-delivered: #6a1f1f;
+    --table-bg-not-delivered-hover: #d63a3a;
+    --table-bg-partially-delivered: #7a5020;
+    --table-bg-partially-delivered-hover: #e8a040;
+    --table-bg-more-than-delivered: #1f6b7a;
+    --table-bg-more-than-delivered-hover: #2eb3d6;
+    --table-row-selected-bg: #62682f;
+
+
+    --border: #6d665a;
+    --border-thick: #fff9a3;
+    --code-bg: #1f2028;
+    --btn-bg: #d18958;
+    --btn-hover: #dab44b;
+    --btn-font-color: #22252c;
+    --btn-font-color-hover: #332c27;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* Print styles */
+@media print {
+
+  /* Hide all interactive elements when printing */
+  button,
+  .flex.flex-wrap.gap-2,
+  input[type="text"],
+  label,
+  [title*="toggle"],
+  [title*="Växla"],
+  [title*="Förhandsgranska"],
+  [title*="Avsluta"] {
+    display: none !important;
+  }
+
+  /* Optimize table for printing */
+  section.bg-\\[var\\(--bg-panel\\)\\] {
+    page-break-inside: avoid;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    font-size: 9pt;
+  }
+
+  table {
+    page-break-inside: auto;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 8pt;
+    line-height: 1;
+  }
+
+  tbody tr {
+    page-break-inside: avoid;
+    height: auto;
+  }
+
+  thead {
+    display: table-header-group;
+    background-color: var(--table-header-bg);
+    color: var(--text-table-header);
+  }
+
+  /* Ensure all rows are visible in print */
+  tbody tr:hover {
+    background-color: inherit !important;
+  }
+
+  /* Remove background colors but keep borders for readability */
+  td {
+    page-break-inside: avoid;
+    border: 0.5pt solid #999;
+    padding: 2px 3px;
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  th {
+    border: 0.5pt solid #000;
+    padding: 2px 3px;
+    font-weight: bold;
+    font-size: 8pt;
+    line-height: 1.1;
+  }
+
+  /* Compact title */
+  h2 {
+    page-break-after: avoid;
+    margin: 0 0 4px 0;
+    font-size: 11pt;
+  }
+
+  /* Optimize spacing for print */
+  h1 {
+    page-break-after: avoid;
+  }
+
+  p {
+    page-break-inside: avoid;
+    margin: 0;
+  }
+
+  /* Remove all margin/padding from sections */
+  section {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,31 @@
+# UTF-8
+#
+# For more details about fixed file info 'ffi' see:
+# http://msdn.microsoft.com/en-us/library/ms646997.aspx
+VSVersionInfo(
+  ffi=FixedFileInfo(
+# Contains as much info as Windows will allow. Do not change anything, unless you know what you're doing.
+    mask=0x3f,
+    mask2=0x3f,
+# Contains a bitmask that specifies the valid bits 'flags'r
+    numericVersion=(1,0,0,0),
+# Contains the version number of the file. This is a list of up to four items; nonexistent items default to zero.
+    productVersion=(1,0,0,0),
+# Contains the version number of the product this file is part of. This is a list of up to four items; nonexistent items default to zero.
+    mask=0x3f,
+# Contains a bitmask that specifies the valid bits 'flags'r
+    strFileInfo=StringFileInfo(
+      [StringTable(
+        u'040904B0',
+        [StringStruct(u'CompanyName', u'Shop\u00f6 ApS'),
+        StringStruct(u'FileDescription', u'Shop - Delivery Management System'),
+        StringStruct(u'FileVersion', u'1.0.0.0'),
+        StringStruct(u'InternalName', u'Shop'),
+        StringStruct(u'LegalCopyright', u'Copyright Shop\u00f6 ApS'),
+        StringStruct(u'OriginalFilename', u'Shop.exe'),
+        StringStruct(u'ProductName', u'Shop'),
+        StringStruct(u'ProductVersion', u'1.0.0.0')])
+      ]), 
+    VarFileInfo=[VarStruct(u'Translation', [1033, 1200])]
+  )
+)

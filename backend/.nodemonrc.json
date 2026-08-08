@@ -1,0 +1,9 @@
+{
+  "exec": "venv/Scripts/python.exe app.py",
+  "ext": "py",
+  "watch": ["app.py"],
+  "ignore": ["__pycache__", "venv", "build", "dist", ".git", "*.pyc"],
+  "delay": 1000,
+  "verbose": false,
+  "legacyWatch": true
+}
