@@ -8,10 +8,10 @@ A LAN-ready delivery-note manager: a React frontend and a Flask + Socket.IO back
 
 ## Screenshots
 
-| ![Screenshot](frontend/public/Screenshot_1) | ![Screenshot](frontend/public/Screenshot_2)
-| ![Screenshot](frontend/public/Screenshot_3)
-
-> Screenshots live under `docs/screenshots/`. Add your own images there with the filenames above (or update the paths) to have them render here.
+|                                                   |                                                   |
+| ------------------------------------------------- | ------------------------------------------------- |
+| ![Screenshot 1](frontend/public/Screenshot_1.jpg) | ![Screenshot 2](frontend/public/Screenshot_2.jpg) |
+| ![Screenshot 3](frontend/public/Screenshot_3.jpg) |                                                   |
 
 ## Tech stack
 
