@@ -21,11 +21,11 @@ export const COLUMNS = [
     showWhen: "always",
     header: () => (
       <>
-        <span className="hidden md:inline">Leveransnr</span>
+        <span className="hidden md:inline">Delivery No.</span>
         <span className="inline md:hidden">
-          Lever-
+          Delivery
           <br />
-          ansnr
+          No.
         </span>
       </>
     ),
@@ -39,7 +39,7 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[64px]",
     cellClassName: "w-[64px]",
-    header: () => "Rad",
+    header: () => "Row",
     cell: (article) => article.Rad || "-",
   },
   {
@@ -47,7 +47,7 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[110px]",
     cellClassName: "w-[110px]",
-    header: () => "Artikelnr",
+    header: () => "Article No.",
     cell: (article) => article.Artikelnr || "-",
   },
   {
@@ -55,7 +55,7 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[200px]",
     cellClassName: "w-[200px]",
-    header: () => "Streckkod",
+    header: () => "Barcode",
     cell: (article, _firstEntry, { saveBarcode, isPrintMode }) =>
       isPrintMode ? (
         <span>{article.Streckkod || "-"}</span>
@@ -77,9 +77,9 @@ export const COLUMNS = [
     showWhen: "minimized",
     header: () => (
       <>
-        Artikelnr
+        Article No.
         <br />
-        Streckkod
+        Barcode
       </>
     ),
     cell: (article, _firstEntry, { saveBarcode, isPrintMode }) =>
@@ -117,7 +117,7 @@ export const COLUMNS = [
   {
     key: "beskrivning",
     showWhen: "always",
-    header: () => "Beskrivning",
+    header: () => "Description",
     font: "left",
     headerClassName: "w-[200px] md:w-[300px]",
     cellClassName:
@@ -131,9 +131,9 @@ export const COLUMNS = [
     cellClassName: "w-[70px] text-center",
     header: () => (
       <>
-        Lev
+        Delivered
         <br />
-        Kvant
+        Qty
       </>
     ),
     cell: (article) => article.Kvant || "-",
@@ -143,7 +143,7 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[60px]",
     cellClassName: "w-[60px]",
-    header: () => "Enh",
+    header: () => "Unit",
     cell: (article) => article.Enh || "-",
   },
   {
@@ -153,7 +153,7 @@ export const COLUMNS = [
     cellClassName: "w-[90px]",
     header: () => (
       <>
-        Lev
+        Delivered
         <br />
         KFP
       </>
@@ -165,7 +165,7 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[90px]",
     cellClassName: "w-[90px]",
-    header: () => "À-pris",
+    header: () => "Unit Price",
     cell: (article) => article.Price || "-",
   },
   {
@@ -176,10 +176,10 @@ export const COLUMNS = [
     header: () => (
       <>
         <span className="hidden md:inline">
-          Rek
+          Rec.
           <br />
         </span>
-        K-pris
+        List Price
       </>
     ),
     cell: (article) => article.RekPris || "-",
@@ -191,7 +191,7 @@ export const COLUMNS = [
     cellClassName: "w-[100px]",
     header: () => (
       <>
-        Marginal
+        Margin
         <br />%
       </>
     ),
@@ -202,7 +202,7 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[100px]",
     cellClassName: "w-[100px]",
-    header: () => "Nettopris",
+    header: () => "Net Price",
     cell: (article) => article.Nettopris || "-",
   },
   {
@@ -210,13 +210,13 @@ export const COLUMNS = [
     showWhen: "full",
     headerClassName: "w-[100px]",
     cellClassName: "w-[100px]",
-    header: () => "Referens",
+    header: () => "Reference",
     cell: (article) => article.referens || "",
   },
   {
     key: "received",
     showWhen: "always",
-    header: () => "Levereras",
+    header: () => "Delivered",
     cell: (
       article,
       firstEntry,

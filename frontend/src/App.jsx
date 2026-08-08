@@ -41,7 +41,7 @@ function App() {
         {isLoggedIn && <UploadSection className="print:hidden" />}
         <div>
           <h2 className="text-2xl font-bold mb-4 text-[var(--text)]">
-            Levererade artiklar
+            Delivered Articles
           </h2>
           <DeliveryTable
             showNotDeliveredTable={showNotDeliveredTable}
@@ -51,7 +51,7 @@ function App() {
         {showNotDeliveredTable && (
           <div className="mt-8">
             <h2 className="text-2xl font-bold mb-4 text-[var(--text)]">
-              Ej levererade artiklar
+              Not Delivered Articles
             </h2>
             <NotDeliveredTable />
           </div>

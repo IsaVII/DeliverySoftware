@@ -57,7 +57,7 @@ export default function DeliveryTable({
     return (
       <section className="bg-[var(--bg-panel)] p-6 rounded-lg border border-gray-300">
         <H2>
-          Leveranser{" "}
+          Deliveries{" "}
           {d.currentFilename && (
             <span className="text-sm font-normal text-gray-600 whitespace-nowrap overflow-hidden text-ellipsis inline-block max-w-xs md:max-w-none">
               ({d.currentFilename})
@@ -91,7 +91,7 @@ export default function DeliveryTable({
     <section className="bg-[var(--bg-panel)]  p-2 rounded-lg border border-gray-300">
       <div className="flex items-center justify-between mb-4">
         <H2>
-          Leveranser{" "}
+          Deliveries{" "}
           {d.currentFilename && (
             <span className="text-sm font-normal text-[var(--text-muted)] whitespace-nowrap overflow-hidden text-ellipsis inline-block max-w-xs md:max-w-none">
               ({d.currentFilename})
