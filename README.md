@@ -1,4 +1,4 @@
-# Shop — Delivery Management System
+# Shop Delivery Management System
 
 A LAN-ready delivery-note manager: a React frontend and a Flask + Socket.IO backend, packaged together into a single executable. Flask serves both the built React app and the API from one port (`5000`), so only one server needs to be reachable on your Wi-Fi network, and only one `.exe` needs to be shipped.
 
