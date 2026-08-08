@@ -20,7 +20,7 @@ export function flattenDeliveries(data) {
 export async function fetchDeliveriesFromApi() {
   const response = await fetch("/api/deliveries");
   if (!response.ok) {
-    throw new Error("Misslyckades att hämta leveranser");
+    throw new Error("Failed to fetch deliveries");
   }
   const data = await response.json();
   return flattenDeliveries(data);

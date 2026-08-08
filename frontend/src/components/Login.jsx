@@ -16,7 +16,7 @@ const Login = ({ isLoggedIn, onLogin, onLogout }) => {
       setUsername("");
       setPassword("");
     } else {
-      setError("Ogiltigt användarnamn eller lösenord");
+      setError("Invalid username or password");
     }
   };
 
@@ -37,9 +37,9 @@ const Login = ({ isLoggedIn, onLogin, onLogout }) => {
     return (
       <div id="auth-section" className="flex gap-2 items-center">
         <span className="text-sm font-medium text-[var(--text-h)]">
-          Inloggad som: admin
+          Logged in as: admin
         </span>
-        <Button handleClick={handleLogout}>Logga ut</Button>
+        <Button handleClick={handleLogout}>Logout</Button>
       </div>
     );
   }
@@ -50,7 +50,7 @@ const Login = ({ isLoggedIn, onLogin, onLogout }) => {
         <Input
           size="m"
           type="text"
-          placeholder="Användarnamn"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           onKeyDown={handleKeyDown}
@@ -59,13 +59,13 @@ const Login = ({ isLoggedIn, onLogin, onLogout }) => {
         <Input
           size="m"
           type="password"
-          placeholder="Lösenord"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           onKeyDown={handleKeyDown}
           className="text-white"
         />
-        <Button handleClick={handleLogin}>Logga in</Button>
+        <Button handleClick={handleLogin}>Login</Button>
       </div>
       {error && <p className="text-red-500 text-sm">{error}</p>}
     </div>

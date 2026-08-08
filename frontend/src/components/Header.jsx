@@ -34,8 +34,8 @@ export default function Header({
           <button
             onClick={toggleTheme}
             className="p-2 rounded-md hover:bg-[var(--bg-panel)] transition-colors"
-            title={`Byt till ${theme === "light" ? "mörkt" : "ljust"} läge`}
-            aria-label="Växla mörkt läge"
+            title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            aria-label="Toggle dark mode"
           >
             {theme === "light" ? (
               <span className="text-xl">🌙</span>

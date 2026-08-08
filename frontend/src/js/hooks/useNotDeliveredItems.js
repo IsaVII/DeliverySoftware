@@ -13,7 +13,7 @@ export function useNotDeliveredItems() {
     fetchNotDeliveredFromApi()
       .then(setNotDeliveredItems)
       .catch((err) => {
-        console.error("Fel vid hämtning av ej levererade artiklar:", err);
+        console.error("Error fetching undelivered articles:", err);
         setError(err.message);
       })
       .finally(() => setIsLoading(false));

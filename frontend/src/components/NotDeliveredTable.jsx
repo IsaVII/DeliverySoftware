@@ -9,21 +9,19 @@ function NotDeliveredTable() {
   if (isLoading) {
     return (
       <div className="text-center text-[var(--text-secondary)]">
-        Hämtar ej levererade artiklar...
+        Fetching undelivered articles...
       </div>
     );
   }
 
   if (error) {
-    return (
-      <div className="text-center text-red-500">Fel vid hämtning: {error}</div>
-    );
+    return <div className="text-center text-red-500">Fetch error: {error}</div>;
   }
 
   if (notDeliveredItems.length === 0) {
     return (
       <div className="text-center text-[var(--text-secondary)]">
-        Inga ej levererade artiklar
+        No undelivered articles
       </div>
     );
   }

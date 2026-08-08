@@ -4,19 +4,19 @@ export const NOT_DELIVERED_COLUMNS = [
   {
     key: "huvudgrupp",
     showWhen: "always",
-    header: () => "Huvudgrupp",
+    header: () => "Main Group",
     cell: (item) => item.huvudgrupp || "-",
   },
   {
     key: "artikelnr",
     showWhen: "always",
-    header: () => "Artikelnr",
+    header: () => "Article No.",
     cell: (item) => item.Artikelnr || "-",
   },
   {
     key: "beskrivning",
     showWhen: "always",
-    header: () => "Beskrivning",
+    header: () => "Description",
     font: "left",
     headerClassName: "max-w-[100px] md:max-w-none",
     cellClassName: "max-w-[100px] md:max-w-none overflow-hidden text-ellipsis",
@@ -27,9 +27,9 @@ export const NOT_DELIVERED_COLUMNS = [
     showWhen: "always",
     header: () => (
       <>
-        Best
+        Order
         <br />
-        Kvant
+        Qty
       </>
     ),
     cell: (item) => item.BestKvänt || "-",
@@ -37,7 +37,7 @@ export const NOT_DELIVERED_COLUMNS = [
   {
     key: "bestEnh",
     showWhen: "full",
-    header: () => "Best Enh",
+    header: () => "Order Unit",
     cell: (item) => item.BestEnh || "-",
   },
   {
@@ -45,7 +45,7 @@ export const NOT_DELIVERED_COLUMNS = [
     showWhen: "always",
     header: () => (
       <>
-        Best
+        Order
         <br />
         KFP
       </>
@@ -57,9 +57,9 @@ export const NOT_DELIVERED_COLUMNS = [
     showWhen: "always",
     header: () => (
       <>
-        Rstad
+        Remaining
         <br />
-        Kvant
+        Qty
       </>
     ),
     cell: (item) => item.RestadKvänt || "-",
@@ -67,13 +67,13 @@ export const NOT_DELIVERED_COLUMNS = [
   {
     key: "restadEnh",
     showWhen: "full",
-    header: () => "Rstad Enh",
+    header: () => "Remaining Unit",
     cell: (item) => item.RestadEnh || "-",
   },
   {
     key: "bristorsak",
     showWhen: "always",
-    header: () => "Bristorsak",
+    header: () => "Shortage Reason",
     font: "left",
     headerClassName: "max-w-[80px] md:max-w-none",
     cellClassName: "max-w-[80px] md:max-w-none overflow-hidden text-ellipsis",
@@ -82,7 +82,7 @@ export const NOT_DELIVERED_COLUMNS = [
   {
     key: "referens",
     showWhen: "full",
-    header: () => "Referens",
+    header: () => "Reference",
     cell: (item) => item.Referens || "",
   },
 ];

@@ -6,7 +6,7 @@ export default function MetadataDisplay({ metadata }) {
       <div className="grid grid-cols-4 gap-2 print:gap-2">
         <div>
           <p className="text-xs print:text-xs font-semibold text-[var(--text-secondary)] print:mb-0">
-            Leveransmottagare
+            Delivery Recipient
           </p>
           <p className="text-sm print:text-sm font-bold text-[var(--text)] print:m-0">
             {metadata.Leveransmottagare}
@@ -14,7 +14,7 @@ export default function MetadataDisplay({ metadata }) {
         </div>
         <div>
           <p className="text-xs print:text-xs font-semibold text-[var(--text-secondary)] print:mb-0">
-            Följesedelnr
+            Packing List No.
           </p>
           <p className="text-sm print:text-sm font-bold text-[var(--text)] print:m-0">
             {metadata.Följesedelnr}
@@ -22,7 +22,7 @@ export default function MetadataDisplay({ metadata }) {
         </div>
         <div>
           <p className="text-xs print:text-xs font-semibold text-[var(--text-secondary)] print:mb-0">
-            Leveransdatum
+            Delivery Date
           </p>
           <p className="text-sm print:text-sm font-bold text-[var(--text)] print:m-0">
             {metadata.Leveransdatum}
@@ -30,7 +30,7 @@ export default function MetadataDisplay({ metadata }) {
         </div>
         <div>
           <p className="text-xs print:text-xs font-semibold text-[var(--text-secondary)] print:mb-0">
-            Dokumentutskrift
+            Document Print
           </p>
           <p className="text-sm print:text-sm font-bold text-[var(--text)] print:m-0">
             {metadata.Dokumentutskrift}

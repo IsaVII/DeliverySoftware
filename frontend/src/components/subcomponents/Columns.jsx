@@ -277,7 +277,7 @@ export const COLUMNS = [
   {
     key: "comment",
     showWhen: "always",
-    header: () => "Kommentar",
+    header: () => "Comment",
     headerClassName: "max-w-[120px]",
     cellClassName: "max-w-[120px]",
     cell: (article, _firstEntry, { saveComment, isPrintMode }) => {
@@ -287,7 +287,7 @@ export const COLUMNS = [
       return (
         <input
           type="text"
-          placeholder="Lägg till kommentar"
+          placeholder="Add comment"
           defaultValue={article.comment || ""}
           onBlur={(e) => {
             const newComment = e.target.value;

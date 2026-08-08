@@ -18,7 +18,7 @@ export default function UploadSection({ className = "" }) {
   const handleUpload = async (e) => {
     e.preventDefault();
     if (!file) {
-      setUploadMessage("✗ Ingen fil vald");
+      setUploadMessage("✗ No file selected");
       return;
     }
 
@@ -29,7 +29,7 @@ export default function UploadSection({ className = "" }) {
       const data = await uploadDeliveryFile(file);
 
       setUploadMessage(
-        `✓ ${data.message} (${data.deliveries_count} leveranser, ${data.total_articles} artiklar)`,
+        `✓ ${data.message} (${data.deliveries_count} deliveries, ${data.total_articles} articles)`,
       );
       setFile(null);
 
@@ -42,8 +42,8 @@ export default function UploadSection({ className = "" }) {
         window.location.reload();
       }, 1500);
     } catch (err) {
-      console.error("Fel vid uppladdning:", err);
-      setUploadMessage(`✗ Fel: ${err.message}`);
+      console.error("Upload error:", err);
+      setUploadMessage(`✗ Error: ${err.message}`);
     } finally {
       setUploading(false);
     }
@@ -56,12 +56,12 @@ export default function UploadSection({ className = "" }) {
     try {
       const data = await updateBarcodeDataApi();
       setUpdateMessage(
-        `✓ ${data.message} (${data.total_articles} totalt artiklar)`,
+        `✓ ${data.message} (${data.total_articles} total articles)`,
       );
-      console.log("Streckkoddata uppdaterad:", data);
+      console.log("Barcode data updated:", data);
     } catch (err) {
-      console.error("Fel vid uppdatering av streckkoddata:", err);
-      setUpdateMessage(`✗ Fel: ${err.message}`);
+      console.error("Error updating barcode data:", err);
+      setUpdateMessage(`✗ Error: ${err.message}`);
     } finally {
       setUpdating(false);
     }
@@ -71,7 +71,7 @@ export default function UploadSection({ className = "" }) {
     <section
       className={`bg-[var(--bg-panel)] p-6 rounded-lg border border-gray-300 ${className}`}
     >
-      <H2>Ladda upp fil</H2>
+      <H2>Upload file</H2>
       <form
         onSubmit={handleUpload}
         className="flex gap-4 items-center flex-wrap"
@@ -83,11 +83,11 @@ export default function UploadSection({ className = "" }) {
           className="flex-1 min-w-[200px] px-3 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent cursor-pointer"
         />
         <Button handleClick={handleUpload} disabled={!file || uploading}>
-          {uploading ? "Laddar upp..." : "Ladda upp"}
+          {uploading ? "Uploading..." : "Upload"}
         </Button>
       </form>
       {file && !uploading && (
-        <p className="mt-2 text-sm text-gray-700">Vald: {file.name}</p>
+        <p className="mt-2 text-sm text-gray-700">Selected: {file.name}</p>
       )}
       {uploadMessage && (
         <p

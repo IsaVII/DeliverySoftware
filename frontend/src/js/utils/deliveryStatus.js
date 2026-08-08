@@ -7,27 +7,27 @@
 export const STATUS_FILTERS_CONFIG = [
   {
     key: "unchecked",
-    label: "Okontrollerad",
+    label: "Unchecked",
     colorVar: "--status-color-unchecked",
   },
   {
     key: "not-delivered",
-    label: "Inte levererad",
+    label: "Not delivered",
     colorVar: "--status-color-not-delivered",
   },
   {
     key: "partly-delivered",
-    label: "Delvis levererad",
+    label: "Partially delivered",
     colorVar: "--status-color-partly-delivered",
   },
   {
     key: "all-delivered",
-    label: "Helt levererad",
+    label: "Fully delivered",
     colorVar: "--status-color-all-delivered",
   },
   {
     key: "too-many",
-    label: "För många",
+    label: "Too many",
     colorVar: "--status-color-too-many",
   },
 ];

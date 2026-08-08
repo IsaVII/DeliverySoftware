@@ -1,6 +1,6 @@
 export const SORT_MODES_CONFIG = [
-  { key: "withinLeverans", label: "Inom leverans" },
-  { key: "completeList", label: "Fullständig lista" },
+  { key: "withinLeverans", label: "Within delivery" },
+  { key: "completeList", label: "Full list" },
 ];
 
 export function compareByBeskrivning(a, b, direction) {

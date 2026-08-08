@@ -64,7 +64,7 @@ export default function DeliveryTable({
             </span>
           )}
         </H2>
-        <p className="text-gray-500">Läser in...</p>
+        <p className="text-gray-500">Loading...</p>
       </section>
     );
   }
@@ -100,7 +100,7 @@ export default function DeliveryTable({
         </H2>
         <button
           onClick={() => d.setIsTableMinimized(!d.isTableMinimized)}
-          title={d.isTableMinimized ? "Expandera" : "Minimera"}
+          title={d.isTableMinimized ? "Expand" : "Minimize"}
           className="px-3 py-1 rounded-md text-sm font-medium transition-colors text-[var(--btn-filter-text)] bg-[var(--btn-filter-inactive)] hover:bg-[var(--btn-filter-inactive-hover)] flex items-center gap-2"
         >
           <span className="text-lg">{d.isTableMinimized ? "➕" : "➖"}</span>
@@ -110,9 +110,9 @@ export default function DeliveryTable({
       {!d.isTableMinimized && (
         <span className="text-sm text-[var(--text-muted)] mt-0 mb-2 block">
           {deliveryDate && !isNaN(deliveryDate) ? (
-            <span>Leveransdatum: {deliveryDate.toLocaleDateString()}</span>
+            <span>Delivery Date: {deliveryDate.toLocaleDateString()}</span>
           ) : metadataObj?.Leveransdatum ? (
-            <span>Leveransdatum: {metadataObj.Leveransdatum}</span>
+            <span>Delivery Date: {metadataObj.Leveransdatum}</span>
           ) : null}
         </span>
       )}
@@ -122,7 +122,7 @@ export default function DeliveryTable({
         <>
           <div className="mb-4 flex flex-wrap gap-2">
             <span className="text-sm font-medium text-[var(--text-muted)] self-center">
-              Filtrera efter status:
+              Filter by status:
             </span>
             {STATUS_FILTERS_CONFIG.map(({ key, label, colorVar }) => (
               <ToggleButton
@@ -144,24 +144,24 @@ export default function DeliveryTable({
               active={d.showPfand}
               onClick={() => d.setShowPfand(!d.showPfand)}
             >
-              {"Pant"} ({pfandCount})
+              {"Deposit"} ({pfandCount})
             </ToggleButton>
             <ToggleButton active={true} onClick={d.toggleBarcodeFilter}>
               {d.barcodeFilter === "all"
-                ? `Med & Utan streckkod (${barcodeCounts.total})`
+                ? `With & Without barcode (${barcodeCounts.total})`
                 : d.barcodeFilter === "with-barcode"
-                  ? `Med streckkod (${barcodeCounts.withBarcode})`
-                  : `Utan streckkod (${barcodeCounts.withoutBarcode})`}
+                  ? `With barcode (${barcodeCounts.withBarcode})`
+                  : `Without barcode (${barcodeCounts.withoutBarcode})`}
             </ToggleButton>
           </div>
 
           {/* Sort Buttons */}
           <div className="mb-4 flex flex-wrap gap-2">
             <span className="text-sm font-medium text-[var(--text-muted)] self-center">
-              Sortera efter beskrivning:
+              Sort by description:
             </span>
             <ToggleButton active={d.sortMode === "none"} onClick={d.resetSort}>
-              ✕ Ingen sortering
+              ✕ No sorting
             </ToggleButton>
             {SORT_MODES_CONFIG.map(({ key, label }) => (
               <ToggleButton
@@ -180,11 +180,11 @@ export default function DeliveryTable({
           <div className="mb-4 flex gap-4 flex-col md:flex-row">
             <div className="flex-1">
               <label className="text-sm font-medium text-[var(--text-muted)]">
-                Sök efter beskrivning
+                Search by description
               </label>
               <input
                 type="text"
-                placeholder="Sök artikelbeskrivning..."
+                placeholder="Search article description..."
                 value={d.searchDescriptionInput}
                 onChange={(e) => d.setSearchDescriptionInput(e.target.value)}
                 onKeyDown={(e) => {
@@ -202,12 +202,12 @@ export default function DeliveryTable({
               <div className="flex items-center gap-2">
                 <div className="flex-1">
                   <label className="text-sm font-medium text-[var(--text-muted)]">
-                    Sök efter streckkod
+                    Search by barcode
                   </label>
                   <input
                     ref={d.barcodeInputRef}
                     type="text"
-                    placeholder="Sök streckkod..."
+                    placeholder="Search barcode..."
                     value={d.searchBarcodeInput}
                     onChange={(e) => {
                       d.setSearchBarcodeInput(e.target.value);
@@ -225,9 +225,7 @@ export default function DeliveryTable({
                 <button
                   onClick={() => d.setAutoFillEnabled(!d.autoFillEnabled)}
                   title={
-                    d.autoFillEnabled
-                      ? "Inaktivera autofyll"
-                      : "Aktivera autofyll"
+                    d.autoFillEnabled ? "Disable autofill" : "Enable autofill"
                   }
                   className={`px-4 py-2 rounded-md font-medium transition-colors text-[var(--btn-filter-text)] self-end ${
                     d.autoFillEnabled
@@ -235,7 +233,7 @@ export default function DeliveryTable({
                       : "bg-[var(--btn-filter-inactive)] hover:bg-[var(--btn-filter-inactive-hover)]"
                   }`}
                 >
-                  {d.autoFillEnabled ? "🟠 Autofyll" : "⭕ Autofyll"}
+                  {d.autoFillEnabled ? "🟠 Autofill" : "⭕ Autofill"}
                 </button>
               </div>
               {d.barcodeSearchError && (
@@ -251,7 +249,7 @@ export default function DeliveryTable({
       {/* Show fetch/save errors inline instead of calling alert() during render */}
       {d.error && (
         <p className="text-red-500 mb-2" role="alert">
-          Fel: {d.error}
+          Error: {d.error}
         </p>
       )}
 
@@ -260,36 +258,32 @@ export default function DeliveryTable({
           <div className="flex flex-wrap gap-2 mb-4">
             <Button
               handleClick={d.toggleMinimizeColumns}
-              title="Växla kolumnvy"
+              title="Toggle column view"
             >
               <span className="text-xl font-bold">
                 {d.minimizedColumns ? "⊞ " : "⊟ "}
               </span>
-              <span>{d.minimizedColumns ? "Visa alla" : "Minimera"}</span>
+              <span>{d.minimizedColumns ? "Show all" : "Minimize"}</span>
             </Button>
             <Button
               handleClick={() => d.setShowCommentColumn(!d.showCommentColumn)}
-              title={d.showCommentColumn ? "Dölj kommentar" : "Visa kommentar"}
+              title={d.showCommentColumn ? "Hide comment" : "Show comment"}
             >
               <span className="text-xl font-bold">
                 {d.showCommentColumn ? "💬 " : "🚫 "}
               </span>
               <span>
-                {d.showCommentColumn ? "Dölj kommentar" : "Visa kommentar"}
+                {d.showCommentColumn ? "Hide comment" : "Show comment"}
               </span>
             </Button>
             <Button
               handleClick={() => d.setIsPrintMode(!d.isPrintMode)}
-              title={
-                d.isPrintMode ? "Avsluta utskrift" : "Förhandsgranska utskrift"
-              }
+              title={d.isPrintMode ? "Exit print mode" : "Print preview"}
             >
               <span className="text-xl font-bold">
                 {d.isPrintMode ? "✕ " : "🖨️ "}
               </span>
-              <span>
-                {d.isPrintMode ? "Avsluta utskrift" : "Utskriftsläge"}
-              </span>
+              <span>{d.isPrintMode ? "Exit print mode" : "Print mode"}</span>
             </Button>
             {d.isPrintMode && (
               <>
@@ -297,7 +291,7 @@ export default function DeliveryTable({
                   onClick={() => window.print()}
                   className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
                 >
-                  🖨️ Skriv ut
+                  🖨️ Print
                 </button>
                 <button
                   onClick={() =>
@@ -310,8 +304,8 @@ export default function DeliveryTable({
                   }`}
                 >
                   {showNotDeliveredTable
-                    ? "✓ Visa ej levererade"
-                    : "👁️ Dölj ej levererade"}
+                    ? "✓ Show undelivered"
+                    : "👁️ Hide undelivered"}
                 </button>
               </>
             )}
@@ -320,8 +314,8 @@ export default function DeliveryTable({
           {d.isPrintMode && (
             <div className="mb-4 p-3 bg-yellow-100 border-l-4 border-yellow-500 text-sm print:hidden">
               <p>
-                <strong>Utskriftsläge aktiverat:</strong> Inmatningsfält är
-                dolda. Klicka "Skriv ut" för att öppna utskriftsdialogen.
+                <strong>Print mode activated:</strong> Input fields are hidden.
+                Click "Print" to open the print dialog.
               </p>
             </div>
           )}
@@ -389,12 +383,12 @@ export default function DeliveryTable({
           </div>
           {filteredArticles.length === 0 && (
             <p className="text-gray-500 mt-4">
-              Inga artiklar matchar de valda filtren eller sökningen.
+              No articles match the selected filters or search.
             </p>
           )}
         </>
       ) : !d.isTableMinimized ? (
-        <p className="text-gray-500">Inga leveranser hittades</p>
+        <p className="text-gray-500">No deliveries found</p>
       ) : null}
     </section>
   );
