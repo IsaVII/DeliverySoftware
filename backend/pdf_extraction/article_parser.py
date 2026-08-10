@@ -88,14 +88,28 @@ def parse_article_line(line: str) -> dict | None:
     rad = parts[0]
     artikelnr = parts[1]
 
-    # Find where the free-text description ends: the first numeric part that
-    # is immediately followed by a recognized unit code (K##, ST, KG, ...).
-    desc_end_idx = 2
-    for i in range(2, len(parts) - 3):
-        if parts[i].replace(".", "", 1).isdigit() and _UNIT_CODE_RE.match(parts[i + 1]):
-            desc_end_idx = i
+   # Find the price position to work backwards from
+    price_part_idx = -1
+    for i, part in enumerate(parts):
+        if part == price_match.group(0):
+            price_part_idx = i
             break
 
+    if price_part_idx == -1:
+        return None
+
+    # Work backwards from the price to identify the structured fields:
+    # ... Beskrivning Kvant Enh KFP Price ...
+    # The 3 fields immediately before Price are: KFP, Enh, Kvant
+    if price_part_idx < 3:
+        return None
+
+    kvant = parts[price_part_idx - 3]
+    enh = parts[price_part_idx - 2]
+    kfp = parts[price_part_idx - 1]
+
+    # Everything from index 2 to kvant is the description
+    desc_end_idx = price_part_idx - 3
     beskrivning = " ".join(parts[2:desc_end_idx])
     kvant = parts[desc_end_idx] if desc_end_idx < len(parts) else ""
     enh = parts[desc_end_idx + 1] if desc_end_idx + 1 < len(parts) else ""
