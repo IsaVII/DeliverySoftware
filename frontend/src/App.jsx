@@ -33,7 +33,7 @@ function App() {
         className="print:hidden"
       />
       <main className="bg-[var(--bg)] flex-1 w-full mx-auto px-1 md:px-6 py-2 flex flex-col gap-3">
-        <div>
+        <div className="print:hidden">
           local ip: <b>{localIp}:5000</b>
         </div>
 

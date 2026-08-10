@@ -29,7 +29,7 @@ export const COLUMNS = [
         </span>
       </>
     ),
-    headerClassName: "w-[85px] overflow-hidden",
+    headerClassName: "w-[85px] print:min-w-[75px] overflow-hidden",
     cellClassName: "w-[85px] overflow-hidden break-words",
     cell: (article, firstEntry, helpers) =>
       (helpers?.showLeveransnr ?? firstEntry) ? article.leveransnr : "",
@@ -53,8 +53,8 @@ export const COLUMNS = [
   {
     key: "streckkod",
     showWhen: "full",
-    headerClassName: "w-[200px]",
-    cellClassName: "w-[200px]",
+    headerClassName: "w-[200px] print:w-[150px]",
+    cellClassName: "w-[200px] print:w-[150px]",
     header: () => "Barcode",
     cell: (article, _firstEntry, { saveBarcode, isPrintMode }) =>
       isPrintMode ? (
@@ -119,9 +119,10 @@ export const COLUMNS = [
     showWhen: "always",
     header: () => "Description",
     font: "left",
-    headerClassName: "w-[200px] md:w-[300px]",
+    headerClassName:
+      "w-[200px] md:w-[300px] print:min-w-[200px] overflow-hidden",
     cellClassName:
-      "w-[200px] md:w-[300px] overflow-hidden text-ellipsis whitespace-nowrap",
+      "w-[200px] md:w-[300px] print:w-[200px] print:max-w-[200px] overflow-hidden text-ellipsis whitespace-nowrap",
     cell: (article) => article.Beskrivning || "-",
   },
   {
@@ -278,8 +279,8 @@ export const COLUMNS = [
     key: "comment",
     showWhen: "always",
     header: () => "Comment",
-    headerClassName: "max-w-[120px]",
-    cellClassName: "max-w-[120px]",
+    headerClassName: "max-w-[120px] print:max-w-[200px] print:w-[200px]",
+    cellClassName: "max-w-[120px] print:max-w-[200px] print:w-[200px]",
     cell: (article, _firstEntry, { saveComment, isPrintMode }) => {
       if (isPrintMode) {
         return <span>{article.comment || "-"}</span>;

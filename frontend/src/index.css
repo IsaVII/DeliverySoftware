@@ -256,8 +256,12 @@
     margin: 0;
     padding: 0;
   }
-}
 
-body {
-  margin: 0;
-}
+  .scroll-container {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  body {
+    margin: 0;
+  }

@@ -335,11 +335,15 @@ export default function DeliveryTable({
 
             {/* Scrollable Body Table */}
             <div
-              style={{
-                maxHeight: "600px",
-                overflowY: "auto",
-                overflowX: "auto",
-              }}
+              style={
+                d.isPrintMode
+                  ? {}
+                  : {
+                      maxHeight: "600px",
+                      overflowY: "auto",
+                      overflowX: "auto",
+                    }
+              }
               className="scroll-container"
             >
               <table className="w-full text-sm" style={{ tableLayout: "auto" }}>
