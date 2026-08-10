@@ -51,16 +51,20 @@ def upload_file():
         if not isinstance(delivery_data, dict) or "deliveries" not in delivery_data:
             return jsonify({"error": 'Invalid file structure. Expected {"deliveries": [...]}'}), 400
 
-        # Both PDFs and JSON files are written to disk with a timestamped name.
-        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        output_filename = f"{DELIVERY_FILE_PREFIX}{timestamp}.json"
-        output_path = os.path.join(get_data_dir(), output_filename)
-
         with store.lock:
-            with open(output_path, "w", encoding="utf-8") as f:
-                json.dump(delivery_data, f, indent=2, ensure_ascii=False)
+            # Only save to disk if it's a PDF upload
+            if file_ext == ".pdf":
+                timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+                output_filename = f"{DELIVERY_FILE_PREFIX}{timestamp}.json"
+                output_path = os.path.join(get_data_dir(), output_filename)
 
-            store.current_data_file = output_path
+                with open(output_path, "w", encoding="utf-8") as f:
+                    json.dump(delivery_data, f, indent=2, ensure_ascii=False)
+
+                store.current_data_file = output_path
+            else:
+                # For JSON uploads, use the original filename
+                output_filename = file.filename
 
             store.deliveries_data = delivery_data
             store.fill_missing_barcodes()
