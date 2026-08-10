@@ -9,6 +9,7 @@ import {
   getStatusCounts,
   getPfandCount,
   getBarcodeCounts,
+  getCommentCounts,
 } from "../js/utils/deliveryStatus";
 import { SORT_MODES_CONFIG } from "../js/utils/sorting";
 import DeliveryRow from "./subcomponents/DeliveryRow.jsx";
@@ -73,6 +74,7 @@ export default function DeliveryTable({
   const statusCounts = getStatusCounts(d.articles, !d.showPfand);
   const pfandCount = getPfandCount(d.articles);
   const barcodeCounts = getBarcodeCounts(d.articles);
+  const commentCounts = getCommentCounts(d.articles);
   const visibleColumns = getVisibleColumns({
     isPrintMode: d.isPrintMode,
     minimizedColumns: d.minimizedColumns,
@@ -152,6 +154,12 @@ export default function DeliveryTable({
                 : d.barcodeFilter === "with-barcode"
                   ? `With barcode (${barcodeCounts.withBarcode})`
                   : `Without barcode (${barcodeCounts.withoutBarcode})`}
+            </ToggleButton>
+            <ToggleButton
+              active={d.showCommentsOnly}
+              onClick={() => d.setShowCommentsOnly(!d.showCommentsOnly)}
+            >
+              💬 Only with comments ({commentCounts.withComment})
             </ToggleButton>
           </div>
 

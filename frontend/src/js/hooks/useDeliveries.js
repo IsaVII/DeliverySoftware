@@ -45,6 +45,7 @@ export function useDeliveries() {
   const [barcodeFilter, setBarcodeFilter] = useState("all"); // "all", "with-barcode", "without-barcode"
   const [showPfand, setShowPfand] = useState(false); // Hide pfand articles by default
   const [showCommentColumn, setShowCommentColumn] = useState(true); // Show comment column by default
+  const [showCommentsOnly, setShowCommentsOnly] = useState(false); // Show only articles with comments by default
   const tableRowRefs = useRef({});
   const barcodeInputRef = useRef(null);
 
@@ -215,6 +216,11 @@ export function useDeliveries() {
       }
       // "all" shows everything, no filter needed
 
+      // Apply comments filter
+      if (showCommentsOnly) {
+        if (!article.comment || article.comment.trim() === "") return false;
+      }
+
       // Apply description search filter
       if (searchDescription.trim()) {
         const searchLower = searchDescription.toLowerCase();
@@ -366,6 +372,7 @@ export function useDeliveries() {
     barcodeFilter,
     showPfand,
     showCommentColumn,
+    showCommentsOnly,
     tableRowRefs,
     barcodeInputRef,
 
@@ -378,6 +385,7 @@ export function useDeliveries() {
     setAutoFillEnabled,
     setShowPfand,
     setShowCommentColumn,
+    setShowCommentsOnly,
 
     // derived data
     filteredArticles: getFilteredAndSortedArticles(),

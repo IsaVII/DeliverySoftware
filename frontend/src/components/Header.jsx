@@ -2,7 +2,7 @@ import H1 from "./subcomponents/H1.jsx";
 import Login from "./Login.jsx";
 import NavButton from "./subcomponents/NavButton.jsx";
 
-const VERSION = "1.1.13";
+const VERSION = "1.1.14";
 
 export default function Header({
   theme,

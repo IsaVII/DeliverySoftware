@@ -98,3 +98,13 @@ export function getBarcodeCounts(articles) {
   });
   return { withBarcode, withoutBarcode, total: articles.length };
 }
+
+export function getCommentCounts(articles) {
+  let withComment = 0;
+  articles.forEach((article) => {
+    if (article.comment && article.comment.trim() !== "") {
+      withComment++;
+    }
+  });
+  return { withComment, total: articles.length };
+}
