@@ -29,6 +29,16 @@ export default function DeliveredField({
     setTempValue(e.target.value);
   };
 
+  const handleInput = (e) => {
+    setTempValue(e.target.value);
+    // Trigger save for spinner arrow clicks
+    const finalValue = e.target.value === "" ? -1 : parseFloat(e.target.value);
+    saveReceived(article.leveransnr, article.Rad, finalValue);
+    if (clearSelection) {
+      clearSelection();
+    }
+  };
+
   const handleBlur = () => {
     const finalValue = tempValue === "" ? -1 : parseFloat(tempValue);
     saveReceived(article.leveransnr, article.Rad, finalValue);
@@ -58,6 +68,7 @@ export default function DeliveredField({
         value={tempValue}
         onChange={handleChange}
         onBlur={handleBlur}
+        onInput={handleInput}
         style={{
           flex: 1,
           padding: "4px",

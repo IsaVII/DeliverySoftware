@@ -8,6 +8,7 @@ const Input = forwardRef(
       placeholder,
       value = "",
       onChange,
+      onInput,
       onKeyDown,
       onBlur,
       className = "",
@@ -37,6 +38,7 @@ const Input = forwardRef(
         style={{ width: getSize() }}
         value={value}
         onChange={onChange}
+        onInput={onInput}
         onKeyDown={onKeyDown}
         onBlur={onBlur}
         enterKeyHint={enterKeyHint}
